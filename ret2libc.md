@@ -10,7 +10,9 @@ Encore faut t'il lui envoyé les parametres qu'il faut, dans notre cas "/bin/sh"
 
 L'exploit se compose ainsi
 
+```bash
 [140 * 'B'][address de system][OSEF][address de "/bin/sh"]
+```
 
 La stack se compose ainsi
 
