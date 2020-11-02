@@ -1,0 +1,6 @@
+
+Nous pouvons voir que sur la machine l'ASLR est desactivé.
+cat /proc/sys/kernel/randomize_va_space -> $00
+La stack est executable.
+readelf -a exploit_me | grep GNU_STACK -> RWE
+Le programe copy argv[1] avec strcpy. Il suffit donc de faire un shellcode sans null byte.
