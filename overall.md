@@ -1,3 +1,7 @@
+Pour récuperer l'adresse IP de la VM on lance un nmap pour scanner le réseau
+```bash
+nmap -A 172.16.96.1/24
+```
 
 Quand nous lancon boot2root, la vm ouvre un port https.
 Avec un dirbuster nous avous a trouver que le path /forum et /webmail exist.
@@ -88,3 +92,17 @@ Apres plusieur essaie, et une visite sur le slack qui nous informe qu'il faut sw
 thor
 Publicspeakingisveryeasy.126241207201b2149opekmq426135
 
+On a un fichier turtle qui donne des indications pour la librairie turtle de python.
+On fait un script python pour nettoyer le fichier et on passe les instructions au module turtle.py.
+Sa nous affiche un mot de passe "SLASH" sous forme de dessin que l'on doit hasher en md5
+```bash
+echo -n "SLASH" | md5
+646da671ca01bb5d84dbb5fb2238dc8e
+```
+
+Nous pouvons voir que sur la machine l'ASLR est desactivé.
+cat /proc/sys/kernel/randomize_va_space -> $00
+La stack est executable.
+readelf -a exploit_me | grep GNU_STACK -> RWE
+Le programe copy argv[1] avec strcpy. Il suffit donc de faire un shellcode sans null byt\
+e.
