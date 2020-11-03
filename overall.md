@@ -56,21 +56,23 @@ Le code fait juste un bitwise and sur les character. Il y a donc plusieur soluti
 Pour la sixième phase, La bombe regarde d'abort si dans la sequence il n'y a pas de doublon est que les nombre sont entre 1-6.
 En fonction des nombre il arrange une liste chainer dont les indice des noeuds sont egaux a ceux des nombre rentré.
 Les noeuds de la link list sont comme suit:
-
+```bash
 struct Node {
 	int number;
 	int order;
 	struct Node* next;
 };
-
+```
 Il itere dans la suite pour voir les number sont en ordre décroissant. Si il le sont la bombe peux etres desamorcé ;).
 
+```gdb
 0x804b26c <node1>:      0x000000fd      0x00000001      0x0804b260
 0x804b260 <node2>:      0x000002d5      0x00000002      0x0804b254
 0x804b254 <node3>:      0x0000012d      0x00000003      0x0804b248
 0x804b248 <node4>:      0x000003e5      0x00000004      0x0804b23c
 0x804b23c <node5>:      0x000000d4      0x00000005      0x0804b230
 0x804b230 <node6>:      0x000001b0      0x00000006      0x00000000
+```
 
 4 2 6 3 1 5
 
