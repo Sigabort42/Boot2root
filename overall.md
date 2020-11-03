@@ -1,8 +1,8 @@
+#Etape 1:
 Pour récuperer l'adresse IP de la VM on lance un nmap pour scanner le réseau
 ```bash
 nmap -A 172.16.96.1/24
 ```
-
 Quand nous lancon boot2root, la vm ouvre un port https.
 Avec un dirbuster nous avous a trouver que le path /forum et /webmail exist.
 Dans le forum nous trouvons des logs qui nous permette de leaker le mot de passe de lmezard:!q\]Ej?*5K5cy*AJ
@@ -15,14 +15,15 @@ nous pouvons telecharger les identifiant du ftp dans /home/LOOKATME
 lmezard
 G!@M6f4Eatau{sF"
 
+#Etape2:
 Avec ces identifiant nous pouvont ensuite telecharger une tarball fun
 Cette tarball contenait un dossier ft_fun qui conténer a son tour des fichier pcap.
 Dans chaque fichier pcap il y avait un comment qui préciser l'order de ce fichier par rapport au autre. 
 Une fois reconstituer ces fichier formée un code source C qui une fois compiler demander de hasher un mot de passe.
 Un fois hasher, le resultat consituer le mot de passe de laurie.
 laurie:330b845f32185747e4f8ca15d40ca59796035c89ea809fb5d30f4da83ecf45a4
+#Etape3:
 Pour récuper le mot de passe de thor nous devons desarmorcer des bombe succésive.
-
 Pour desamorcé la premiere phase il suffit de rentré la chaine
 Public speaking is very easy.
 
@@ -92,6 +93,7 @@ Apres plusieur essaie, et une visite sur le slack qui nous informe qu'il faut sw
 thor
 Publicspeakingisveryeasy.126241207201b2149opekmq426135
 
+#Etape4:
 On a un fichier turtle qui donne des indications pour la librairie turtle de python.
 On fait un script python pour nettoyer le fichier et on passe les instructions au module turtle.py.
 Sa nous affiche un mot de passe "SLASH" sous forme de dessin que l'on doit hasher en md5
@@ -100,6 +102,7 @@ echo -n "SLASH" | md5
 646da671ca01bb5d84dbb5fb2238dc8e
 ```
 
+#Etape5:
 Nous pouvons voir que sur la machine l'ASLR est desactivé.
 cat /proc/sys/kernel/randomize_va_space -> $00
 La stack est executable.
