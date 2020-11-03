@@ -105,8 +105,11 @@ echo -n "SLASH" | md5
 
 # Etape5:
 Nous pouvons voir que sur la machine l'ASLR est desactivé.
+```bash
 cat /proc/sys/kernel/randomize_va_space -> $00
+```
 La stack est executable.
+```bash
 readelf -a exploit_me | grep GNU_STACK -> RWE
-Le programe copy argv[1] avec strcpy. Il suffit donc de faire un shellcode sans null byt\
-e.
+```
+Le programe copy argv[1] avec strcpy. Il suffit donc de faire un shellcode sans null byte.
